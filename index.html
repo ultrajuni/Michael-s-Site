@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Michael's Site</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Corner images -->
+    <div class="corner corner-tl"></div>
+    <div class="corner corner-tr"></div>
+    <div class="corner corner-bl"></div>
+    <div class="corner corner-br"></div>
+
+    <!-- Rope button -->
+    <button id="special-button" class="image-button">
+        <img src="messagerope.png" alt="Rope Button">
+    </button>
+
+    <!-- Main content -->
+    <div class="container">
+        <img src="sitelogo.png" alt="Logo" class="logo">
+
+        <div class="text">Welcome to my site!</div>
+        <!-- Grid of buttons -->
+        <div class="grid">
+            <a href="https://youtube.com/@YTMichael_" target="_blank" class="grid-item">
+                <img src="YouTubeButton.png" alt="Youtube channel">
+            </a>
+            <a href="https://gdbrowser.com/u/michealuwu" target="_blank" class="grid-item">
+                <img src="GDAccButton.png" alt="Geometry dash account">
+            </a>
+            <a href="https://www.roblox.com/groups/13340939/Normally-Games#!/about" target="_blank" class="grid-item">
+                <img src="RobloxGroupButton.png" alt="Roblox group">
+            </a>
+            <a href="https://gamejolt.com/@nymehhh" target="_blank" class="grid-item">
+                <img src="GamejoltProfile.png" alt="Gamejolt account">
+            </a>
+            <a href="gameslist.html" class="grid-item">
+                <img src="GodotGamesBtn.png" alt="My godot games">
+            </a>
+            <a href="gameslist2.html" class="grid-item">
+                <img src="RobloxGamesButton.png" alt="My roblox games">
+            </a>
+        </div>
+
+        <!-- Text and action buttons -->
+        <div class="action-buttons">
+            <a href="https://sites.google.com/view/ultrajuni/mainsite-html" target="_blank">
+                <button>Old Site</button>
+            </a>
+            <a href="https://finnhgg.carrd.co" target="_blank">
+                <button>Portfolio</button>
+            </a>
+            <a href="https://docs.google.com/document/d/10lgqbhDsF9RENScoEum81y0_98PZmdjrA4X04R2cvpI/edit?usp=sharing" target="_blank">
+                <button>Credits</button>
+            </a>
+        </div>
+    </div>
+
+    <!-- Container for bottom buttons -->
+    <div class="bottom-buttons">
+        <a id="bottom-button-1" href="https://github.com/ultrajuni" target="_blank">
+           <img src="github.png" alt="Github">
+        </a>
+        <a id="bottom-button-2" href="https://x.com/realnyme" target="_blank">
+            <img src="twitter.png" alt="My X account">
+        </a>
+    </div>
+
+    <!-- Menu -->
+    <div id="menu" class="menu">
+        <button id="close-button" class="close-button">
+            <img src="close.png" alt="Close Menu">
+        </button>
+        <h2>Contact</h2>
+        <form id="message-form">
+            <input type="text" id="username" placeholder="Username" required>
+            <textarea id="message" placeholder="Your message here" required></textarea>
+            <button type="submit" class="send-button">
+                <img src="btn-done.png" alt="Send">
+            </button>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

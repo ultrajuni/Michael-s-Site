@@ -1,0 +1,396 @@
+@font-face {
+    font-family: 'Pusab'; /* Name the font */
+    src: url('Pusab.ttf') format('ttf'); /* Path to the .woff file */
+    font-weight: normal; /* Set font weight */
+    font-style: normal; /* Set font style */
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(#0065FD, #002E73);
+    cursor: url('finalCursor_default.png'), pointer;
+    cursor: url('finalCursor_default.png'), auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    font-family: 'Pusab', sans-serif;
+}
+
+body.levelBG {
+    background-image: linear-gradient(#0065FD, #002E73);
+    height: 100vh;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+body.darkBG {
+    background-image: linear-gradient(#323232, #171717) !important;
+}
+
+body.vaultBG {
+    background-image: linear-gradient(#4B0062, #22002D) !important;
+}
+
+body.purpleBG {
+    background-image: linear-gradient(#6E00FD, #330074) !important;
+}
+
+.corner {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: url('corner.png') no-repeat center center;
+    background-size: cover;
+}
+
+.corner-tl {
+    top: 0;
+    left: 0;
+    transform: rotate(90deg);
+}
+
+.corner-tr {
+    top: 0;
+    right: 0;
+    transform: rotate(180deg);
+}
+
+.corner-bl {
+    bottom: 0;
+    left: 0;
+}
+
+.corner-br {
+    bottom: 0;
+    right: 0;
+    transform: rotate(-90deg);
+}
+
+.image-button {
+    position: absolute;
+    top: -15px; /* Adjust as needed */
+    left: 200px; /* Adjust as needed */
+    background: none;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    transition: transform 0.2s ease; /* Smooth transition for the rope pull effect */
+}
+
+.image-button img {
+    display: block;
+    width: 150px; /* Adjust size as needed */
+    height: auto;
+}
+
+.image-button:active {
+    transform: translateY(10px); /* Rope pull effect */
+}
+
+.container {
+    text-align: center;
+    position: relative;
+    z-index: 1; /* Ensures the container is above the corner images */
+}
+
+.logo {
+    display: block;
+    margin: 0 auto 20px;
+    width: 150*2px; /* Adjust size as needed */
+    height: auto;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 100px);
+    gap: 5px 90px;
+    margin: 10px; /* Increased margin for spacing */
+}
+
+.grid-item {
+    background: none;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    transition: transform 0.2s ease; /* Smooth transition for scaling effect */
+    
+}
+
+.grid-item img {
+    width: 200%;
+    height: auto;
+    transition: transform 0.2s ease; /* Smooth transition for scaling effect */
+}
+
+.grid-item:active img {
+    transform: scale(1.2); /* Enlarge the image when button is active */
+}
+
+.text {
+    margin: 20px 0;
+    color: white;
+    font-size: 34px; /* Adjust the size as needed */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.action-buttons button {
+    font-family: 'Pusab', sans-serif; /* Ensure the Pusab font is applied */
+    background: none; /* Remove background */
+    border: none; /* Remove border */
+    color: white; /* Text color */
+    padding: 10px 20px; /* Adjust padding as needed */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); /* Optional: Add text shadow */
+    font-size: 16px; /* Adjust font size as needed */
+}
+
+/* Container for action buttons */
+.action-buttons {
+    /* Your existing styles for action buttons */
+    text-align: center; /* Center the action buttons horizontally */
+    margin-bottom: 60px; /* Add space below action buttons to make room for bottom buttons */
+}
+
+/* Container for bottom buttons */
+.bottom-buttons {
+    position: fixed;
+    bottom: 20px; /* Distance from the bottom of the viewport */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Center the container */
+    display: flex;
+    gap: 10px; /* Space between the buttons */
+    z-index: 10; /* Ensure it’s on top */
+}
+
+/* Style for each bottom button */
+.bottom-buttons a {
+    display: inline-block; /* Ensure the link behaves like a block-level element */
+    background: transparent; /* Transparent background */
+    border: none; /* Remove border */
+    cursor: pointer; /* Pointer cursor on hover */
+    outline: none; /* Remove outline */
+    transition: transform 0.2s ease; /* Add transition for scaling */
+}
+
+/* Size and scaling of the bottom button images */
+.bottom-buttons img {
+    width: 50px; /* Adjust width as needed */
+    height: 50px; /* Adjust height as needed */
+    transition: transform 0.2s ease; /* Add transition for scaling */
+}
+
+/* Scale animation for bottom button press */
+.bottom-buttons a:active img {
+    transform: scale(1.2); /* Slightly smaller when pressed */
+}
+
+/* Contact menu styling */
+.menu {
+    position: fixed;
+    top: -100%; /* Start hidden above the viewport */
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #6f4f28; /* Brown background for the menu */
+    color: white; /* White text color */
+    border: none; /* Remove border */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 40px; /* Increased padding for larger elements */
+    box-sizing: border-box;
+    transition: top 0.5s ease; /* Slide down effect */
+    z-index: 10; /* Ensure it’s on top */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: auto; /* Allow scrolling if content is too tall */
+}
+
+/* Close button styling */
+.menu .close-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: transparent; /* Transparent background */
+    border: none; /* Remove border */
+    cursor: pointer; /* Pointer cursor on hover */
+    outline: none; /* Remove outline */
+    font-size: 10px; /* Larger font size */
+    transition: transform 0.2s ease, background-color 0.3s ease; /* Add transition for scaling and background */
+}
+
+.menu .close-button img {
+    width: 90px; /* Smaller width */
+    height: auto; /* Smaller height */
+    transition: transform 0.2s ease; /* Add transition for scaling */
+}
+
+/* Scale animation for button press */
+.menu .close-button:active {
+    transform: scale(1.1); /* Enlarge button when pressed */
+}
+
+/* Form elements */
+.menu form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Spacing between form elements */
+    width: 90%;
+    max-width: 400px;
+}
+
+.menu h2 {
+    font-size: 62px; /* Larger font size for the heading */
+    margin-top: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Optional: Add text shadow for better readability */
+}
+
+/* Adjust size and spacing of input and textarea */
+.menu input, .menu textarea {
+    padding: 15px; /* Increased padding for larger input fields */
+    border-radius: 10px; /* Rounded corners */
+    border: 1px solid #ccc;
+    font-size: 20px; /* Larger text size for input fields and text area */
+}
+
+/* Optional: If there are any labels or other text elements */
+.menu label {
+    font-size: 18px; /* Adjust as needed for other text elements */
+}
+
+.menu textarea {
+    height: 150px; /* Increased height */
+    background-color: #d3bda3; /* Brown background for the text area */
+}
+
+/* Buttons in the menu */
+.menu .send-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    height: auto; /* Adjust height to maintain aspect ratio */
+    font-size: 44px; /* Larger font size for send button */
+    transition: transform 0.2s ease; /* Scale animation for button press */
+}
+
+.menu .send-button img {
+    width: auto; /* Smaller width */
+    height: 90px; /* Smaller height */
+}
+
+.menu .send-button:active {
+    transform: scale(1.1); /* Enlarge button when pressed */
+}
+
+/* Animation for menu appearance */
+.menu.show {
+    animation: bounceIn 0.5s forwards; /* Bounce in effect */
+}
+
+@keyframes bounceIn {
+    0% {
+        top: -100%;
+    }
+    60% {
+        top: 10%;
+    }
+    80% {
+        top: -5%;
+    }
+    100% {
+        top: 0;
+    }
+}
+
+/* Credits button styling */
+#credits-button {
+    position: fixed;
+    bottom: 20px; /* Distance from the bottom */
+    right: 20px; /* Distance from the right */
+    background: transparent; /* Transparent background */
+    border: none; /* Remove border */
+    cursor: pointer; /* Pointer cursor on hover */
+    outline: none; /* Remove outline */
+    transition: transform 0.2s ease; /* Add transition for scaling */
+}
+
+/* Size and scaling of the credits button image */
+#credits-button img {
+    width: 30px; /* Adjust width as needed */
+    height: 30px; /* Adjust height as needed */
+    transition: transform 0.2s ease; /* Add transition for scaling */
+}
+
+/* Scale animation for credits button press */
+#credits-button:active img {
+    transform: scale(0.9); /* Slightly smaller when pressed */
+}
+
+/* Credits menu styling */
+.credits-menu {
+    position: fixed;
+    top: -100%; /* Start hidden above the viewport */
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #6f4f28; /* Brown background for the menu */
+    color: white; /* White text color */
+    border: none; /* Remove border */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 40px; /* Increased padding for larger elements */
+    box-sizing: border-box;
+    transition: top 0.5s ease; /* Slide down effect */
+    z-index: 10; /* Ensure it’s on top */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: auto; /* Allow scrolling if content is too tall */
+}
+
+/* Credits menu close button */
+#close-credits-button {
+    position: absolute; /* Ensure it stays in the corner */
+    top: 20px; /* Distance from the top */
+    right: 20px; /* Distance from the right */
+    background: transparent; /* Transparent background */
+    border: none; /* Remove border */
+    cursor: pointer; /* Pointer cursor on hover */
+    outline: none; /* Remove outline */
+    transition: transform 0.2s ease; /* Add transition for scaling */
+}
+
+/* Size and scaling of the close button image */
+#close-credits-button img {
+    width: 30px; /* Adjust width as needed */
+    height: 30px; /* Adjust height as needed */
+    transition: transform 0.2s ease; /* Add transition for scaling */
+}
+
+/* Scale animation for close button press */
+#close-credits-button:active img {
+    transform: scale(1.2); /* Slightly smaller when pressed */
+}
+
+/* Credits content styling */
+.credits-content h1,
+.credits-content p,
+.credits-content ul {
+    color: white; /* White text color */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Add text shadow for better readability */
+}
+
+.credits-content ul {
+    list-style-type: none; /* Remove bullet points */
+    padding: 0; /* Remove padding */
+}
+
+.credits-content li {
+    margin: 5px 0; /* Space between list items */
+}
