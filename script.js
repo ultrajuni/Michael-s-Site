@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const message = document.getElementById('message').value;
 
         // Define the webhook URL
-        const webhookUrl = 'https://discord.com/api/webhooks/1237074055786528818/5QdnsvzrYFiw_E5XqBObTBqa_bHATgYIcUM3oz5UXA4Hipkgcbn4ej6g5HO2fr-DFFwt'; // Replace with your Discord webhook URL
+        const webhookUrl = ''; // Replace with your Discord webhook URL
 
         // Format the message
         const formattedMessage = `<@500665249377026063>\nNew message from ${username}!\n\n[quote]${message}[/quote]`;
